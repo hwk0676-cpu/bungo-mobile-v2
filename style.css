@@ -1,0 +1,208 @@
+/* Both font declarations precede all style rules. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+@font-face {
+    font-family: 'GyeongbokgungSumunjangTitle';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2511-3@1.0/Sumunjang_TitleL.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+a { text-decoration: none; }
+img, video { display: block; }
+body { background: #100d0d; }
+.font01 { font-family: 'GyeongbokgungSumunjangTitle', serif; }
+.font02, .font_02 { font-family: 'Noto Sans KR', sans-serif; }
+
+/* The transparent 430 x 932 image remains a full-screen entry link. */
+.intro-screen { position: relative; width: 100%; height: 100vh; height: 100svh; height: 100dvh; background: #000; }
+.video_wrap, .bt_01 { position: absolute; inset: 0; }
+.video_wrap { z-index: 1; }
+.video_wrap video { width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.bt_01 { z-index: 10; }
+.bt_01 a { position: relative; display: block; width: 100%; height: 100%; }
+.bt_01 img { width: 100%; height: 100%; object-fit: contain; }
+.bt_01 a:focus-visible { outline: 3px solid #fff; outline-offset: -6px; }
+
+/* One unit is one original design pixel at a content width of 430px.
+   Container units affect actual layout, without transform/zoom or height-based scaling. */
+.site { width: 100%; max-width: 430px; margin-inline: auto; container-type: inline-size; }
+.box {
+    --u: calc(min(100vw, 430px) / 430);
+    position: relative;
+    width: 100%;
+    min-height: calc(var(--section-height) * var(--u));
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+@supports (width: 1cqw) { .box { --u: calc(100cqw / 430); } }
+.a_box { --section-height: 693; background-image: url(img/bg_01.png); background-color: #130c09; }
+.b_box { --section-height: 606; background-image: url(img/bg_02.png); background-color: #181510; }
+.c_box, .d_box, .e_box { --section-height: 566; background-image: url(img/bg_03.png); background-color: #554e42; }
+.f_box { --section-height: 606; background-image: url(img/bg_04.png); background-color: #170c0a; }
+.g_box, .h_box, .i_box { --section-height: 566; background-image: url(img/bg_05.png); background-color: #554e42; }
+.j_box { --section-height: 142; background-image: url(img/bg_11.png); }
+.k_box { --section-height: 242; background-image: url(img/bg_06.png); }
+.l_box { --section-height: 242; background-image: url(img/bg_07.png); }
+.m_box { --section-height: 242; background-image: url(img/bg_08.png); }
+.n_box { --section-height: 242; background-image: url(img/bg_09.png); }
+.o_box { --section-height: 242; background-image: url(img/bg_10.png); }
+.p_box { --section-height: 189; background-image: url(img/bg_12.png); }
+
+/* Only the existing animated art sections crop their entrance motion.
+   Their final content fits inside these boundaries; the document is not clipped. */
+.character-section, .season-section, .p_box { overflow: clip; }
+@supports not (overflow: clip) {
+    .character-section, .season-section, .p_box { overflow: hidden; }
+}
+
+.narrative-section { padding-bottom: calc(60 * var(--u)); }
+.tit_01 { padding-top: calc(81 * var(--u)); }
+.tit_01 img { width: calc(74 * var(--u)); height: auto; margin-inline: auto; }
+.tit_02, .tit_03 { padding-top: calc(51 * var(--u)); }
+.tit_02 img, .tit_03 img { width: calc(182 * var(--u)); height: auto; margin-inline: auto; }
+.txt_01, .txt_02, .txt_12 {
+    padding-inline: calc(14 * var(--u));
+    font-size: max(9.5px, calc(11 * var(--u)));
+    line-height: 1.36;
+    color: #fff;
+    text-align: center;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+.txt_01 { margin-top: calc(32 * var(--u)); }
+.txt_02, .txt_12 { margin-top: calc(23 * var(--u)); }
+
+/* Character geometry is explicitly scoped to its own section. */
+.character-art, .character-name, .cl_01 {
+    position: absolute;
+    left: calc(var(--x) * var(--u));
+    top: calc(var(--y) * var(--u));
+    width: calc(var(--w) * var(--u));
+    height: calc(var(--h) * var(--u));
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.character-name { --x: 65; --y: 42; z-index: 20; }
+.character-art { z-index: 10; }
+.c_01 { --w: 76; --h: 298; background-image: url(img/name_01.png); z-index: auto; }
+.d_01 { --w: 76; --h: 218; background-image: url(img/name_02.png); z-index: auto; }
+.e_01 { --w: 76; --h: 223; background-image: url(img/name_03.png); }
+.g_01 { --w: 77; --h: 225; background-image: url(img/name_04.png); }
+.h_01 { --w: 77; --h: 229; background-image: url(img/name_05.png); }
+.i_01 { --w: 76; --h: 375; background-image: url(img/name_06.png); }
+.c_02 { --x: 127; --y: 48; --w: 213; --h: 497; background-image: url(img/ct_01.png); }
+.d_02 { --x: 148; --y: 59; --w: 233; --h: 488; background-image: url(img/ct_02.png); }
+.e_02 { --x: 73; --y: 63; --w: 274; --h: 485; background-image: url(img/ct_03.png); }
+.g_02 { --x: 82; --y: 72; --w: 248; --h: 469; background-image: url(img/ct_04.png); }
+.h_02 { --x: 111; --y: 61; --w: 245; --h: 495; background-image: url(img/ct_05.png); }
+.i_02 { --x: 51; --y: 42; --w: 255; --h: 493; background-image: url(img/ct_06.png); }
+.cl_01 { --x: 348; --y: 203; --w: 4; --h: 4; z-index: 15; background-image: url(img/circle_01.png); }
+.character-meta, .character-meta tbody, .character-meta tr { display: contents; }
+.character-meta td {
+    display: block;
+    position: absolute;
+    top: calc(42 * var(--u));
+    writing-mode: vertical-rl;
+    font-family: 'GyeongbokgungSumunjangTitle', serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.character-meta .name-reading { left: calc(141 * var(--u)); font-size: max(8px, calc(10 * var(--u))); word-spacing: calc(10 * var(--u)); }
+.character-meta .ability-label { left: calc(340 * var(--u)); font-size: calc(15 * var(--u)); letter-spacing: calc(12 * var(--u)); }
+.ability-name {
+    position: absolute;
+    top: calc(129 * var(--u));
+    left: calc(340 * var(--u));
+    font-size: calc(20 * var(--u));
+    line-height: calc(30 * var(--u));
+    font-weight: 700;
+    text-align: center;
+    color: #0080b0;
+}
+.g_box .ability-name, .h_box .ability-name, .i_box .ability-name { color: #b30000; }
+.character-description {
+    position: absolute;
+    left: calc(var(--description-x) * var(--u));
+    top: calc(var(--description-y) * var(--u));
+    width: calc(var(--description-w) * var(--u));
+    min-height: calc(var(--description-h) * var(--u));
+    z-index: 100;
+}
+.description-bg { position: absolute; inset: 0; background: rgb(0 0 0 / 50%); }
+.description-copy {
+    position: relative;
+    z-index: 1;
+    padding: calc(var(--copy-top, 10) * var(--u)) calc(var(--copy-side, 10) * var(--u)) calc(10 * var(--u));
+    font-size: max(10px, calc(12 * var(--u)));
+    line-height: 1.333333;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+.c_box { --description-x: 185; --description-y: 327; --description-w: 215; --description-h: 104; --copy-top: 14; --copy-side: 8; }
+.d_box { --description-x: 34; --description-y: 283; --description-w: 207; --description-h: 164; --copy-side: 8; }
+.e_box { --description-x: 34; --description-y: 298; --description-w: 211; --description-h: 134; --copy-top: 12; }
+.g_box { --description-x: 18; --description-y: 319; --description-w: 212; --description-h: 132; --copy-side: 7; }
+.h_box { --description-x: 22; --description-y: 298; --description-w: 223; --description-h: 149; --copy-top: 11; --copy-side: 5; }
+.i_box { --description-x: 215; --description-y: 262; --description-w: 162; --description-h: 169; --copy-top: 13; --copy-side: 6; }
+
+.tit_04 { padding-top: calc(39 * var(--u)); }
+.tit_04 img { width: calc(146 * var(--u)); height: auto; margin-inline: auto; }
+
+/* Keep six scenes in their original row order. The adjacent copy can grow
+   instead of shrinking the original 9px body text below its source size. */
+.season-section {
+    display: grid;
+    grid-template-columns: minmax(0, 205fr) minmax(0, 181fr);
+    gap: calc(6 * var(--u));
+    align-items: start;
+    padding: calc(32 * var(--u)) calc(19 * var(--u));
+    background-color: #100d0d;
+}
+.season-scenes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: calc(5 * var(--u));
+}
+.season-scenes img { width: 100%; height: auto; aspect-ratio: 100 / 56; }
+.season-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: calc(178 * var(--u));
+    padding: calc(var(--season-top, 23) * var(--u)) calc(7 * var(--u)) calc(17 * var(--u));
+    text-align: center;
+}
+.season-backdrop { position: absolute; inset: 0; background: rgb(0 0 0 / 60%); }
+.season-title, .season-copy, .season-link { position: relative; }
+.season-title { margin-inline: calc(-3 * var(--u)); font-size: max(10px, calc(12 * var(--u))); line-height: 1.4; font-weight: 500; color: #b21f24; word-break: keep-all; overflow-wrap: anywhere; }
+.season-copy { margin: calc(7 * var(--u)) calc(-3 * var(--u)) 0; font-size: 9px; line-height: 1.2223; font-weight: 400; color: #fff; word-break: keep-all; overflow-wrap: anywhere; }
+.season-link { margin-top: auto; padding-top: calc(4 * var(--u)); }
+.season-link a { display: flex; justify-content: center; align-items: center; width: 100%; min-height: max(32px, calc(32 * var(--u))); }
+.season-link img { width: calc(69 * var(--u)); height: auto; }
+.season-link a:focus-visible, .bt_006 a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.m_box, .n_box { --season-top: 28; }
+.o_box { --season-top: 25; }
+.bt_006 { padding: calc(76 * var(--u)) 0 0 calc(19 * var(--u)); }
+.bt_006 a { display: inline-flex; align-items: center; min-height: 44px; }
+.bt_006 img { width: calc(207 * var(--u)); height: auto; }
+
+@container (max-width: 400px) {
+    .season-copy br { display: none; }
+}
+@container (max-width: 380px) {
+    .description-copy br { display: none; }
+}
+/* The same targeted wrapping rules for browsers without container queries. */
+@supports not (container-type: inline-size) {
+    @media (max-width: 400px) { .season-copy br { display: none; } }
+    @media (max-width: 380px) { .description-copy br { display: none; } }
+}
+/* Keep all content readable if the AOS CDN is unavailable. */
+html:not(.aos-ready) [data-aos] { opacity: 1 !important; transform: none !important; }
