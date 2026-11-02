@@ -206,3 +206,21 @@ body { background: #100d0d; }
 }
 /* Keep all content readable if the AOS CDN is unavailable. */
 html:not(.aos-ready) [data-aos] { opacity: 1 !important; transform: none !important; }
+
+/* One-shot background music control. */
+.bgm-control {
+    position: fixed;
+    right: max(12px, calc((100vw - 430px) / 2 + 12px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    z-index: 1000;
+    min-height: 36px;
+    padding: 7px 12px;
+    border: 1px solid rgb(255 255 255 / 60%);
+    border-radius: 3px;
+    background: rgb(0 0 0 / 75%);
+    color: #fff;
+    font: 12px/1.4 sans-serif;
+    cursor: pointer;
+}
+.bgm-control[hidden] { display: none; }
+.bgm-control:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
